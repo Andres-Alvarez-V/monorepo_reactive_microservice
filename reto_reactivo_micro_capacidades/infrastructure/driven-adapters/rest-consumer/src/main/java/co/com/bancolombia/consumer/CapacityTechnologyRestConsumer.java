@@ -50,7 +50,8 @@ public class CapacityTechnologyRestConsumer implements TechnologyConsumer {
                         .build())
                 .retrieve()
                 .bodyToFlux(CapacityWithTechnologiesByCapacityIdListResDTO.class)
-                .map(this::convertToModel);
+                .map(this::convertToModel)
+                .onErrorResume(throwable -> Mono.error(new RuntimeException("Erro getTechnologiesByCapacityIds " + throwable.toString())));
     }
 
     @CircuitBreaker(name = "getCapacitiesWithTechnologiesOrderedByTechnologyCount")

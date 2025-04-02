@@ -66,7 +66,7 @@ public class CapacityTechnologyHandler {
                     }
                 )
                 .flatMapMany(capacityTechnologyUseCase::findCapacityWithTechnologieByCapacityIdIn)
-                .map(CapacityTechnologyMapper::mapCapacityWithTechnologiesListResponse) //
+                .map(CapacityTechnologyMapper::mapCapacityWithTechnologiesListResponse)
                 .collectList()
                 .flatMap(capacityWithTechnologies ->
                         ServerResponse.ok()
@@ -87,7 +87,7 @@ public class CapacityTechnologyHandler {
 
                     requestDTO.setLimit(limitParam.map(Integer::parseInt).orElse(10));
                     requestDTO.setOffset(offsetParam.map(Integer::parseInt).orElse(0));
-                    requestDTO.setSortBy(sortByParam.orElse("nombre"));
+                    requestDTO.setSortBy(sortByParam.orElse("cantidadtecnologias"));
                     requestDTO.setSortDirection(sortDirectionParam.orElse("asc"));
                     return requestDTO;
                 })

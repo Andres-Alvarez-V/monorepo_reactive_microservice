@@ -13,6 +13,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class BootcampRouterRest {
     @Bean
     public RouterFunction<ServerResponse> routerFunction(BootcampHandler bootcampHandler) {
-        return route(POST("/api/bootcamp"), bootcampHandler::createBootcampWithCapacities);
+        return route(POST("/api/bootcamp"), bootcampHandler::createBootcampWithCapacities)
+                .and(route(GET("/api/bootcamp"), bootcampHandler::listBootcampWithCapacity));
     }
 }

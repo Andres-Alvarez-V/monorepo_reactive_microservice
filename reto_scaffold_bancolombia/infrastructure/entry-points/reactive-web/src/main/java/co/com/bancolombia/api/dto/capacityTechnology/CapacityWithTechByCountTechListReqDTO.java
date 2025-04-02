@@ -11,7 +11,7 @@ public class CapacityWithTechByCountTechListReqDTO {
     @Min(value = 0, message = "El offset debe ser mínimo 0")
     private Integer offset;
 
-    @Pattern(regexp = "cantidadtecnologias", message = "El sortBy solo puede ser 'nombre'")
+    @Pattern(regexp = "cantidadtecnologias", message = "El sortBy solo puede ser 'cantidadtecnologias'")
     private String sortBy;
 
     @Pattern(regexp = "asc|desc", message = "El sortDirection solo puede ser 'asc' o 'desc'")

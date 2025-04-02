@@ -16,8 +16,10 @@ public class BootcampCapacityRouterRest {
 
     @Bean("capacityTechnologyRouterFunction")
     public RouterFunction<ServerResponse> routerFunction(BootcampCapacityHandler handler) {
-        return route(POST("/api/bootcamp-capacity"), handler::createBootcampCapacity);
-//                .and(route(GET("/api/capacity-technologies-by-capicity-id"), handler::findCapacityWithTechnologieByCapacityIdIn))
-//                .and(route(GET("/api/capacity-technologies-by-technology-count"), handler::findAllCapacitiesWithTechnologiesOrderedByTechnologyCount));
+        return route(POST("/api/bootcamp-capacity"), handler::createBootcampCapacity)
+                .and(route(GET("/api/bootcamp-capacities-by-bootcamp-id"), handler::findBootcampWithCapacitiesByCapacityIdIn))
+                .and(route(GET("/api/bootcamp-capacities-by-capacity-count"), handler::findAllBootcampWithCapacityOrderedByCapacityCount));
     }
+
+
 }
